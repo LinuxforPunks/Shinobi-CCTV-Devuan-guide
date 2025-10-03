@@ -22,7 +22,7 @@ Don't install the Community Edition version thinking it's the free one.
 
 3. Obtain RECENT versions for these programs (DO NOT rely on apt)
    
-- node.js + npm
+- node.js + npm + pm2
 - mariadb
 
 - go (golang programming language - not needed directly by Shinobi but I'd recommend it)
