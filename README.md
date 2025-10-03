@@ -12,7 +12,7 @@ These two scripts are managed by **node.js** (the pm2 command)
 It uses a mysql server such as **mariadb** to store the camera settings and the users and passwords
 And it has a webgui, which is never the source of its problems.
 
-2. You need the gitlab version.
+2. You need the gitlab version. (shinobi-master.tar.gz)
    
 The github version still barely works but is terrible. And imo it's too easy to mistake them.
 iirc it was something along the lines that there used to be a free Community Edition and a paid-for Pro Edition.
