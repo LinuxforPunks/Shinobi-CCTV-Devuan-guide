@@ -22,7 +22,9 @@ Don't install the Community Edition version thinking it's the free one.
 
 3. Obtain RECENT versions for these programs (DO NOT rely on apt)
    
-- node.js + npm + pm2
+- node.js (unpack the tarball into /usr/local/lib/nodejs)
+- npm (probably included in the same tarball)
+- use npm to install pm2 (npm install pm2 -g)
 - mariadb
 
 - go (golang programming language - not needed directly by Shinobi but I'd recommend it)
