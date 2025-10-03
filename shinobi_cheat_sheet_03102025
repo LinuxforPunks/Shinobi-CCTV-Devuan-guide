@@ -1,0 +1,34 @@
+
+MANUAL RESTARTS
+
+pm2 flush && pm2 restart all && pm2 logs
+
+sudo service mariadb restart
+
+pm2 flush && pm2 restart camera.js && pm2 restart cron.js && pm2 logs
+
+cd /home/Shinobi
+pm2 kill
+pm2 flush
+pm2 start camera.js --name "camera" && pm2 start cron.js --name "cron"
+
+##################################
+
+TO CHECK THE LOGS
+
+/home/Shinobi$ pm2 logs
+
+##################################
+
+TO CONFIGURE THE MYSQL SERVER IN MARIADB
+
+sudo mysql -u root -p
+
+enter the MariaDB root password
+
+ALTER USER 'majesticflame'@'localhost' IDENTIFIED BY 'YOUR_PASSWORD IN CONF.JSON';
+GRANT ALL PRIVILEGES ON ccio.* TO 'majesticflame'@'localhost';
+FLUSH PRIVILEGES;
+
+
+

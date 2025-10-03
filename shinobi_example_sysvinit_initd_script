@@ -1,0 +1,56 @@
+
+#/etc/init.d/shinobi
+
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          shinobi
+# Required-Start:    $remote_fs $syslog $network $mariadb
+# Required-Stop:     $remote_fs $syslog $network
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: init script for Shinobi CCTV
+# Description:       node.js + PM2
+### END INIT INFO
+
+SHINOBI_DIR="/home/Shinobi"
+
+USER="[YOUR_USER]"
+
+export PM2_HOME="/home/$USER/.pm2"
+PM2_CMD="su -l $USER -c 'pm2'"
+
+case "$1" in
+  start)
+    echo "Starting Shinobi..."
+    su -l "$USER" -c "cd $SHINOBI_DIR && pm2 start camera.js --name camera"
+    su -l "$USER" -c "cd $SHINOBI_DIR && pm2 start cron.js --name cron"
+    su -l "$USER" -c "pm2 save"
+
+    echo "Started Shinobi OK"
+    ;;
+
+  stop)
+    echo "Stopping Shinobi..."
+    su -l "$USER" -c "pm2 stop camera"
+    su -l "$USER" -c "pm2 stop cron"
+    echo "Shinobi stopped."
+    ;;
+    
+  restart|force-reload)
+    echo "Restarting Shinobi..."
+    su -l "$USER" -c "pm2 restart camera"
+    su -l "$USER" -c "pm2 restart cron"
+    echo "Shinobi restarted."
+    ;;
+
+  status)
+    su -l "$USER" -c "pm2 status"
+    ;;
+
+  *)
+    echo "Usage: $0 {start|stop|restart|force-reload|status}"
+    exit 1
+    ;;
+esac
+
+exit 0
