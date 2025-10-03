@@ -4,8 +4,8 @@ walkthrough and bits of code for getting Shinobi to run on Devuan and possibly o
 **Introduction**
 
 Shinobi works very nicely on Devuan Daedalus. For my own benefit and perhaps yours I will put the things I wished I knew here.
-**
-1. Shinobi is not a program.**
+
+**1. Shinobi is not a program.**
    
 It is a pair of scripts: **camera.js** and **cron.js**
 These two scripts are managed by **node.js** (the pm2 command)
@@ -20,7 +20,7 @@ And the Community Edition became deprecated... but the Pro Edition became free.
 Don't install the Community Edition version thinking it's the free one.
 
 
-**3. Obtain RECENT versions for these programs ** (DON'T rely on apt!)
+**3. Obtain RECENT versions for these programs** (DON'T rely on apt!)
    
 - node.js (unpack the tarball into /usr/local/lib/nodejs )
 - npm (probably included in the same tarball)
@@ -53,7 +53,7 @@ A disk filling up will stop both the recording and the stream of the cameras tha
 recording between multiple smaller disks. Surveillance disks like WD Purple or Seagate Skyhawk are a must: using normal 
 HDDs will make it seem as if the connections are intermittent when it's the disk not keeping up with the cameras.
 
-7. **Install Docker alongside Shinobi** 
+**7. Install Docker alongside Shinobi** 
 
 Storage would be key to any NVR program but perhaps it affects Shinobi more because of its being in Javascript
 and being a little abstracted from the hardware. I recommend to /usr/local/ to provide the following containers
@@ -78,7 +78,7 @@ are logged by a webhook that uses HTTP POST but can at least be directed into a 
 The Ninja Way installation script, /INSTALL/start.sh, the UPDATE.sh and the UPDATE-v2-to-v3.sh... are confusing imo because they mostly install the same filenames to the same places.
 But if you clone the repo into /home/Shinobi, and run the /INSTALL/start.sh one, that seemed to work and to let you ignore the others.
 
-**10. The MariaDB mysql setup is confusing but does not require many steps to sort out. **
+**10. The MariaDB mysql setup is confusing but does not require many steps to sort out**
 
 When you install mysql you make a "root" user: this is confusing because it's the root user of mysql not necessarily of the PC.
 You also make a dedicated user for Shinobi, which by default is MajesticFlame with a blank password. This new user also isn't a user of the PC just of mysql.
@@ -86,18 +86,18 @@ This new user of mysql must have the same name and password as in conf.json
 There are 3 commands to set this up which I'll attach in the cheat sheet. Although this is automated in the official install scripts I found it kept needing to be
 redone manually.
 
-**13. Init.d Scripts**
+**11. Init.d Scripts**
 
 On Devuan, with SysVinit, you want to autostart mariadb and pm2 (for it to run camera.js and cron.js) with init.d scripts. 
 If dockerd is optionally added, it seems to have some problems with being at the same runlevel as those other two, but it works fine to call it from rc.local.
 The only actual problem I noticed was that the "pm2 startup" command in the official install script doesn't recognize SysVinit and detects it as another program (iirc Openrun).
 
-**14. You want a graphical desktop.**
+**12. You want a graphical desktop.**
 
 It's possible to run the server headless but for getting connections to cameras and checking the vcoding of streams it's best to see what it looks like to the server.
 I like LXDE for this.
 
-**16. It's also good to set up an NFS service to share the CCTV disks.**
+**13. It's also good to set up an NFS service to share the CCTV disks.**
 
 **I will put my copies of the scripts and a cheatsheet of useful commands here. Obviously these only worked for me on a certain PC at a certain moment in time but the key takeaway is that
 you probably only need to make one new init script to launch Shinobi, and configure/enable a couple of others.**
