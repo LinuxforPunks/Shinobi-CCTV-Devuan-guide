@@ -56,7 +56,7 @@ HDDs will make it seem as if the connections are intermittent when it's the disk
 **7. Install Docker alongside Shinobi** 
 
 Storage would be key to any NVR program but perhaps it affects Shinobi more because of its being in Javascript
-and being a little abstracted from the hardware. I recommend to /usr/local/ to provide the following containers
+and being a little abstracted from the hardware. I recommend to to provide the following containers
 (or alternatives):-
 
 - Scrutiny (for checking disk health)
