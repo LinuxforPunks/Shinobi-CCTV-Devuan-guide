@@ -30,5 +30,11 @@ ALTER USER 'majesticflame'@'localhost' IDENTIFIED BY 'YOUR_PASSWORD IN CONF.JSON
 GRANT ALL PRIVILEGES ON ccio.* TO 'majesticflame'@'localhost';
 FLUSH PRIVILEGES;
 
+##################################
 
+TO CHECK THE VERSIONS OF THE PROGRAMS
+
+node -v
+npm -v
+pm2 -v
 
