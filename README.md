@@ -63,7 +63,7 @@ Each option will throw up different permissions issues and it's just a case of w
 because it is so insistent on taking over control of the mountpoint logic, with udisks2 defaulting to overriding /etc/fstab
 
 imo this is actively lethal to Shinobi because its own defaults will write video footage to the OS disk
-and if the OS disk runs out of space the program will stop working. And it will stop working without useful 
+and if the OS disk runs out of space the scipts will stop working. And they will stop working without useful 
 error messages.
 
 ##################################################################################################################################
