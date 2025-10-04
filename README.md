@@ -138,6 +138,10 @@ I like LXDE for this.
 
 ##################################################################################################################################
 
+****14. And snmpd to monitor the connection. Some cameras can send info to snmp.**
+
+##################################################################################################################################
+
 **I will put my copies of the scripts and a cheatsheet of useful commands here. Obviously these only worked for me on a certain PC at a certain moment in time but the takeaway is that
 you probably only need to make one new init script to launch Shinobi, and configure/enable a couple of others.**
 
